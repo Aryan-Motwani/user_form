@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./form.css";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "./db";
@@ -6,6 +6,16 @@ import { db } from "./db";
 function Form() {
   const [name, setName] = useState("");
   const [num, setNum] = useState("");
+
+  useEffect = () => {};
+
+  useEffect(() => {
+    // setTimeout(() => {
+    //   if (window.innerWidth >= 500) {
+    //     document.querySelector(".container").style.left = "40%";
+    //   }
+    // }, 1000);
+  }, []);
 
   let handleSubmit = async (e) => {
     e.preventDefault();
