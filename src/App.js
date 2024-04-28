@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Second from "./Second";
 import IMgg from "./ImgProp";
 import Users from "./Users";
+import Youtube from "./Youtube";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="card" element={<Second />} />
         <Route path="img" element={<IMgg />} />
         <Route path="users" element={<Users />} />
+        <Route path="yt" element={<Youtube />} />
         {/* </Route> */}
       </Routes>
     </BrowserRouter>
