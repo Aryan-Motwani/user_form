@@ -1,72 +1,59 @@
-body {
-    font-family: "Comic Sans MS", cursive;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background: #fafafa; /* Warna latar belakang abu-abu muda */
-    color: #333;
-  }
-  
-  .container {
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  .card {
-    width: 100%;
-    background-color: #f8f8f8; /* Warna card */
-    padding: 20px;
-    border-radius: 12px; /* Border radius card */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-left: 250%;
+import React, { useEffect, useState } from "react";
+import "./form.css";
+import { addDoc, collection, getDocs } from "firebase/firestore";
+import { db } from "./db";
+import jamun from "./jamun.png";
 
-  }
-  
-  h2 {
-    text-align: center;
-    color: #333;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  input {
-    padding: 10px;
-    margin-bottom: 12px;
-    border: 2px solid #ddd; /* Border color input */
-    border-radius: 8px; /* Border radius input */
-    transition: border-color 0.3s ease-in-out;
-    outline: none;
-    color: #333;
-    background-color: #f4f4f4; /* Warna input */
-  }
-  
-  input:focus {
-    border-color: #ff9900; /* Warna input saat focus */
-  }
-  
-  button {
-    background-color: #ff9900; /* Warna button */
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 8px; /* Border radius button */
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  button:hover {
-    background-color: #ff6600; /* Warna button saat hover */
-  }
-  
+function Form() {
+  const [name, setName] = useState("");
+  const [num, setNum] = useState("");
 
-  .jamun-img{
-    height: 100px;
-    width: 100px;
-    margin-left: 25%;
-    margin-bottom: 10%;
-  }
+  useEffect(() => {
+    setTimeout(() => {
+      if (window.innerWidth <= 500) {
+        document.querySelector(".card").style.marginLeft = "25%";
+      } else {
+        document.querySelector(".card").style.marginLeft = "250%";
+      }
+    }, 1000);
+  }, []);
+
+  let handleSubmit = async (e) => {
+    e.preventDefault();
+    const doc = await addDoc(collection(db, "users"), {
+      name: name,
+      number: num,
+    });
+    console.log("done", doc);
+    window.location = "/card";
+  };
+
+  return (
+    <div class="container">
+      <div class="card">
+        <img className="jamun-img" src={jamun}></img>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="username"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Name"
+            required
+          />
+          <input
+            type="number"
+            name="number"
+            value={num}
+            onChange={(e) => setNum(e.target.value)}
+            placeholder="Number"
+            required
+          />
+          <button>Submit</button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+export default Form;
