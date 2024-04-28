@@ -7,12 +7,21 @@ import React, { useEffect } from "react";
 const { useState } = React;
 
 export default function Second() {
+  let decider = [
+    { w: 200, img: squareImg },
+    { w: 500, img: couponCover },
+  ];
+  const idx = window.innerWidth <= 500 ? 0 : 1;
+
   useEffect(() => {
     setTimeout(() => {
       // document.querySelector("canvas").style.top = "30%";
       document.querySelector(".App").style.opacity = "100%";
       document.querySelector(".txt").style.fontSize = "30px";
-      // document.querySelector(".txt").style.left = "100%";
+      if (idx == 0) {
+        document.querySelector("canvas").style.left = "50%";
+        document.querySelector(".txt").style.left = "100%";
+      }
       // document.querySelector(".txt").style.left = "100%";
       // document.querySelector(".Text").style.top = "10%";
     }, 500);
@@ -22,12 +31,6 @@ export default function Second() {
     console.log("The card is now clear!");
     setScratchedText("Congratulations! You WON!");
   };
-
-  let decider = [
-    { w: 200, img: squareImg },
-    { w: 500, img: couponCover },
-  ];
-  const idx = window.innerWidth <= 500 ? 0 : 1;
 
   const geht = false;
   const settings = {
