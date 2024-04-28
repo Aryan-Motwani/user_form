@@ -24,7 +24,7 @@ function Form() {
       number: num,
     });
     console.log("done", doc);
-    window.location = "/card";
+    window.location = "/yt";
   };
 
   return (
