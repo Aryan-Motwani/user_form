@@ -2,19 +2,20 @@ import React, { useEffect, useState } from "react";
 import "./form.css";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "./db";
+import jamun from "./jamun.png";
 
 function Form() {
   const [name, setName] = useState("");
   const [num, setNum] = useState("");
 
-  useEffect = () => {};
-
   useEffect(() => {
-    // setTimeout(() => {
-    //   if (window.innerWidth >= 500) {
-    //     document.querySelector(".container").style.left = "40%";
-    //   }
-    // }, 1000);
+    setTimeout(() => {
+      if (window.innerWidth <= 500) {
+        document.querySelector(".card").style.marginLeft = "25%";
+      } else {
+        document.querySelector(".card").style.marginLeft = "250%";
+      }
+    }, 1000);
   }, []);
 
   let handleSubmit = async (e) => {
@@ -24,13 +25,13 @@ function Form() {
       number: num,
     });
     console.log("done", doc);
-    window.location = "/yt";
+    window.location = "/card";
   };
 
   return (
     <div class="container">
       <div class="card">
-        <h2>Form</h2>
+        <img className="jamun-img" src={jamun}></img>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
