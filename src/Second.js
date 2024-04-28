@@ -42,6 +42,10 @@ export default function Second() {
   };
   return (
     <div className="App" style={{ opacity: "0" }}>
+<meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
       <ScratchCard {...settings}>
         {geht ? (
           <div>
