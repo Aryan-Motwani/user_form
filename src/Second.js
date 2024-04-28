@@ -27,7 +27,7 @@ export default function Second() {
     { w: 200, img: squareImg },
     { w: 500, img: couponCover },
   ];
-  const idx = 0;
+  const idx = window.innerWidth <= 500 ? 0 : 1;
 
   const geht = false;
   const settings = {

@@ -9,8 +9,6 @@ function Form() {
 
   let handleSubmit = async (e) => {
     e.preventDefault();
-
-    return;
     const doc = await addDoc(collection(db, "users"), {
       name: name,
       number: num,
