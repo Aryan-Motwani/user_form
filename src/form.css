@@ -20,7 +20,7 @@ body {
     padding: 20px;
     border-radius: 12px; /* Border radius card */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-left: 30%;
+    margin-left: 250%;
 
   }
   
@@ -63,3 +63,10 @@ body {
     background-color: #ff6600; /* Warna button saat hover */
   }
   
+
+  .jamun-img{
+    height: 100px;
+    width: 100px;
+    margin-left: 25%;
+    margin-bottom: 10%;
+  }
