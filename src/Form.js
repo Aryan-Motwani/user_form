@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./form.css";
 import { addDoc, collection, getDocs } from "firebase/firestore";
-import { db } from "./db";
 import jamun from "./jamun.png";
+import { db } from "./db";
 
 function Form() {
   const [name, setName] = useState("");
